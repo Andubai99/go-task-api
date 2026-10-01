@@ -69,11 +69,11 @@ fmt.Printf("任务：%+v\n", task)
 
 - 用户未报告阻塞问题。
 - 检查发现更新状态时重新填写了整个结构体，结果正确，但重复填写了 ID 和标题。
-- 已给出更直接的写法建议：`task.Done = true`。该建议不等于学习者已完成这项修改。
+- 已给出更直接的写法建议：`task.Done = true`；在任务 002 的后续复查中，已确认学习者使用了这一写法。
 - 该次运行通过后，曾使用 `gofmt` 整理代码格式。
 
 ## 当前工作区与历史结果的区别
 
-建仓时学习者已继续编辑 `main.go`，当前结构体字面量的 ID 后缺少逗号、Title 值尚未填写。重新执行运行检查时，报错 `syntax error: unexpected newline in composite literal; possibly missing comma or }`，退出码为 1。
+建仓时学习者继续编辑 `main.go`，当时结构体字面量的 ID 后缺少逗号、Title 值尚未填写。该次运行检查报错 `syntax error: unexpected newline in composite literal; possibly missing comma or }`，退出码为 1。
 
-因此，上述成功输出属于建仓前已验证的版本，不能解释为当前 `main.go` 运行通过。当前编辑内容已原样保留在初始化提交中，后续修复另行记录。零值与复制实验尚未完成，见任务 002。
+2026-10-01 验收任务 002 时，学习者已补齐初始化、改用字段赋值更新完成状态。程序正常退出，并再次打印上述两条任务记录；此前编辑中的语法问题已恢复。新增零值和副本实验的实际输出见 [任务 002](002-zero-value-and-copy.md#完成记录)。
